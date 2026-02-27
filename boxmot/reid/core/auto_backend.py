@@ -80,7 +80,7 @@ class ReidAutoBackend:
         print(f"pt: {self.pt}, engine: {self.engine}")
         print(f"Map: {backend_map}")
         print(f"Weights path: {self.weights}")
-        print(f"Path exists: {Path(self.weights).exists()")
+        print(f"Path exists: {Path(self.weights).exists()}")
         print(f"Suffix: {Path(self.weights).suffixes}")
         # Iterate through the mapping and return the first matching backend
         for condition, backend_class in backend_map.items():
