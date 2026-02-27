@@ -65,7 +65,7 @@ class ReidAutoBackend:
         Raises:
             SystemExit: If no supported model framework is detected.
         """
-
+        
         # Mapping of conditions to backend constructors
         backend_map = {
             self.pt: PyTorchBackend,
@@ -75,7 +75,12 @@ class ReidAutoBackend:
             self.xml: OpenVinoBackend,
             self.tflite: TFLiteBackend,
         }
-
+        
+        print("\n BACKEND DEBUG START")
+        print(f"pt: {self.pt}, engine: {self.engine}")
+        print(f"Map: {backend_map})
+        print(f"Weights path: {self.weights})
+        
         # Iterate through the mapping and return the first matching backend
         for condition, backend_class in backend_map.items():
             if condition:
