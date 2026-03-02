@@ -100,6 +100,8 @@ class TensorRTBackend(BaseModelBackend):
         self.binding_addrs = OrderedDict((n, d.ptr) for n, d in self.bindings.items())
 
     def forward(self, im_batch):
+        if self.half:
+            im_batch = im_batch.half()
         temp_im_batch = im_batch.clone()
         batch_array = []
         inp_batch = im_batch.shape[0]
