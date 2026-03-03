@@ -18,7 +18,7 @@ class TensorRTBackend(BaseModelBackend):
         self.device = device
         self.weights = weights
         self.fp16 = False  # Will be updated in load_model
-        self.load_model(self.weights)
+        #self.load_model(self.weights)
 
     def load_model(self, w):
         LOGGER.info(f"Loading {w} for TensorRT inference...")
