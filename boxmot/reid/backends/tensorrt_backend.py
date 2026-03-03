@@ -3,6 +3,8 @@ from collections import OrderedDict, namedtuple
 import numpy as np
 import torch
 
+import traceback
+
 from boxmot.reid.backends.base_backend import BaseModelBackend
 from boxmot.utils import logger as LOGGER
 
@@ -20,6 +22,7 @@ class TensorRTBackend(BaseModelBackend):
 
     def load_model(self, w):
         LOGGER.info(f"Loading {w} for TensorRT inference...")
+        traceback.print_stack()
         #self.checker.check_packages(("nvidia-tensorrt",))
         try:
             import tensorrt as trt  # TensorRT library
