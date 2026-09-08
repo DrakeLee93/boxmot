@@ -22,7 +22,11 @@ class TensorRTBackend(BaseModelBackend):
 
     def load_model(self, w):
         LOGGER.info(f"Loading {w} for TensorRT inference...")
-        # traceback.print_stack()
+        try:
+            traceback.print_stack()
+        except Exception as e:
+            print("\n==== TENSORRT ERROR ====", flush=True)
+            print(f"Exception : {repr(e)}", flush=True)
         # self.checker.check_packages(("nvidia-tensorrt",))
         try:
             import tensorrt as trt  # TensorRT library
